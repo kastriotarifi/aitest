@@ -1,1 +1,7 @@
-
+streamlit
+torch
+transformers
+gtts
+moviepy
+requests
+spacy
