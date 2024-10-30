@@ -2,7 +2,13 @@ import spacy
 from collections import Counter
 from gtts import gTTS
 
-nlp = spacy.load("en_core_web_sm")
+# Download the SpaCy model if it's not already installed
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    import spacy.cli
+    spacy.cli.download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 def extract_keywords(text, num_keywords=5):
     doc = nlp(text)
